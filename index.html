@@ -55,6 +55,7 @@
                                     <a href="#">Attiva notifiche desktop</a>
                                 </div>
                             </div>
+                            <!-- End notifiche -->
                             <div class="input-group  p-1">
                                 <button class="btn btn-outline-secondary"
                                     type="button" id="button-addon1"><i
@@ -64,11 +65,12 @@
                                     aria-label="Example text with button addon"
                                     aria-describedby="button-addon1">
                             </div>
-
+                            <!-- End Cerca o inizia una nuova chat -->
                             <div
                                 class="sidebar_body_interlocutor border-bottom p-1"
                                 v-for="(contact, index) in contacts"
                                 :key="index">
+
                                 <div class="sidebar_body_img_text">
                                     <img :src="contact.avatar" alt="Avatar">
                                     <div class="avatar_text">
@@ -76,9 +78,11 @@
                                         <h6>Ultimo messagio inviato</h6>
                                     </div>
                                 </div>
+
                                 <div class="sidebar_body_time">
                                     <p>12:00</p>
                                 </div>
+
                             </div>
 
                         </div>
@@ -104,15 +108,32 @@
 
                         </div>
                         <!-- End chat header -->
-                        <div class="chat_body">
+                        <div class="chat_body row m-0">
 
+                            <div class="interlocutor_left col-6">
+                                <div class="interlocutor_text">
+                                    <h6>Tutto fatto!</h6>
+                                    <p>16:15</p>
+                                </div>
+                            </div>
+                            <!-- End interlocutor left -->
+                            <div class="user_right col-6">
+                                <div class="user_text_1">
+                                    <h6>Hai portato a spasso il cane?</h6>
+                                    <p>15:30</p>
+                                </div>
+                                <div class="user_text_2">
+                                    <h6>Ricordati di stender i panni</h6>
+                                    <p>15:50</p>
+                                </div>
+                            </div>
+                            <!-- End user right -->
                         </div>
                         <!-- End chat body -->
                         <div class="chat_text_area p-3">
                             <div><i class="fa-regular fa-face-smile"></i></div>
                             <input class="form-control" type="text"
-                                value="Scrivi un messagio"
-                                aria-label="readonly input example" readonly>
+                                value="Scrivi un messagio">
                             <div><i class="fa-solid fa-paper-plane"></i></div>
                             <div><i class="fa-solid fa-microphone"></i></div>
                         </div>

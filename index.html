@@ -28,17 +28,25 @@
             <div class="container container_main">
                 <div class="row sidebar_row">
                     <div class="col-4 p-0 sidebar">
-                        <div class="sidebar_header"></div>
+                        <div class="sidebar_header p-2">
+
+                            <img :src="me[0].avatar" alt="Avatar">
+
+                        </div>
                         <!-- End sidebar header -->
                         <div class="sidebar_body"></div>
                         <!-- End sidebar body -->
                     </div>
                     <!-- End Sidebar -->
                     <div class="col-8 p-0 chat">
-                        <div class="chat_header"></div>
+                        <div class="chat_header p-2">
+
+                            <img :src="contacts[0].avatar" alt="Avatar">
+
+                        </div>
                         <!-- End chat header -->
                         <div class="chat_body">
-                            <!-- <img src="./assets/img/mine.jpg" alt> -->
+
                         </div>
                         <!-- End chat body -->
                         <div class="chat_text_area"></div>

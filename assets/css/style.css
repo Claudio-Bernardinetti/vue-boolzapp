@@ -48,6 +48,9 @@ i {
     align-items: center;
 }
 
+.avatar_text > h6 {
+    color: lightslategray;
+}
 
 /* End utilitis */
 
@@ -70,7 +73,6 @@ header > div {
 /* End sidebar header */
 .sidebar_body {
     background-color: var(--bz-app-white);
-    height: 575px;
 }
 
 /* End sidebar body */
@@ -123,5 +125,24 @@ header > div {
 .notifiche_text > a {
     color: lightslategray;
 }
+
+.user_time {
+    position: relative;
+    right: 0;
+
+}
+
+.sidebar_body_interlocutor {
+    display: flex;
+    justify-content: space-between;
+}
+
+.sidebar_body_img_text {
+    display: flex;
+}
+
+
+
+
 /* End chat body */
 

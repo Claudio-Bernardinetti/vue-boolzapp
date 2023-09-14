@@ -55,7 +55,7 @@
                                     <a href="#">Attiva notifiche desktop</a>
                                 </div>
                             </div>
-                            <div class="input-group mb-3 p-1">
+                            <div class="input-group  p-1">
                                 <button class="btn btn-outline-secondary"
                                     type="button" id="button-addon1"><i
                                         class="fa-solid fa-magnifying-glass"></i></button>
@@ -63,6 +63,22 @@
                                     placeholder="Cerca o inizia una nuova chat"
                                     aria-label="Example text with button addon"
                                     aria-describedby="button-addon1">
+                            </div>
+
+                            <div
+                                class="sidebar_body_interlocutor border-bottom p-1"
+                                v-for="(contact, index) in contacts"
+                                :key="index">
+                                <div class="sidebar_body_img_text">
+                                    <img :src="contact.avatar" alt="Avatar">
+                                    <div class="avatar_text">
+                                        <h5>{{ contact.name }}</h5>
+                                        <h6>Ultimo messagio inviato</h6>
+                                    </div>
+                                </div>
+                                <div class="sidebar_body_time">
+                                    <p>12:00</p>
+                                </div>
                             </div>
 
                         </div>
@@ -76,7 +92,7 @@
                                 <img :src="contacts[0].avatar" alt="Avatar">
                                 <div class="avatar_text">
                                     <h5>{{ contacts[0].name }}</h5>
-                                    <span>Ultimo accesso oggi alle 12:00</span>
+                                    <h6>Ultimo accesso oggi alle 12:00</h6>
                                 </div>
                             </div>
 

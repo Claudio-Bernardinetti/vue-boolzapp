@@ -6,6 +6,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    background-color: var(--bz-app-light);
 }
 
 :root {
@@ -17,7 +18,27 @@ body {
     --bz-app-focus: #8EDAFC;
 }
 
+/* Utilitis */
 
-h1 {
-    color: aqua;
+header > div {
+    background-color: var(--bz-app-header);
+    height: 150px;
+}
+
+main {
+    display: flex;
+}
+
+.sidebar {
+    
+    background-color: blue;
+    width: 100px;
+    height: 100px;
+}
+
+.chat {
+    
+    background-color: red;
+    width: 100px;
+    height: 100px;
 }

@@ -35,6 +35,10 @@ img {
     justify-content: space-around;
 }
 
+.header_icons > div > i {
+    color: lightslategray;
+}
+
 i {
     margin: 0.5rem;
 }
@@ -92,6 +96,32 @@ header > div {
     background-image: url(../img/mine.jpg);
     background-repeat: repeat;
     height: 500px;
+}
+
+.notifiche {
+    background-color: var(--bz-app-focus);
+    display: flex;
+    align-items: center;
+}
+
+.notifiche_icon {
+    background-color: white;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    margin: 1rem;
+}
+
+.notifiche_icon > i {
+    color: var(--bz-app-focus);
+}
+
+.notifiche_text > h6 {
+    margin-bottom: -0.2rem;
+}
+
+.notifiche_text > a {
+    color: lightslategray;
 }
 /* End chat body */
 

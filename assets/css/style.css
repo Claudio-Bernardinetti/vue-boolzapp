@@ -97,7 +97,7 @@ header > div {
 .chat_body {  
     background-image: url(../img/mine.jpg);
     background-repeat: repeat;
-    height: 500px;
+    height: 590px;
 }
 
 .notifiche {
@@ -141,8 +141,16 @@ header > div {
     display: flex;
 }
 
-
-
-
+.sidebar_body_time > p {
+    color: lightslategray;
+    font-size: 12px;
+}
 /* End chat body */
+
+.chat_text_area {
+    display: flex;
+    align-items: center;
+}
+
+/* End chat text area */
 

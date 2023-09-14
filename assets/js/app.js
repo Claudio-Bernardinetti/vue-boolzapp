@@ -20,7 +20,7 @@ createApp({
 
             me : [
                 {
-                mame : 'Sofia',
+                name : 'Sofia',
                 avatar: './assets/img/avatar_io.jpg',
                 visible: true,
                 }

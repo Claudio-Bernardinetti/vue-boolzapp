@@ -35,6 +35,8 @@ header > div {
     border-right: 1px solid rgb(178, 175, 175);
 }
 .sidebar_header {
+    display: flex;
+    align-items: center;
     height: 75px;
     background-color: var(--bz-app-light);
 }
@@ -51,6 +53,15 @@ header > div {
     height: 500px;
 }
 
+.chat_header{
+    display: flex;
+    align-items: center;
+}
+
+.avatar_header {
+    display: flex;
+}
+
 .chat_header, .chat_text_area {
     height: 75px;
     background-color: var(--bz-app-light);
@@ -59,6 +70,7 @@ header > div {
 
 img {
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
+    margin-right: 1rem;
 }

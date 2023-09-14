@@ -31,6 +31,7 @@
                         <div class="sidebar_header p-2">
 
                             <img :src="me[0].avatar" alt="Avatar">
+                            <h5>{{ me[0].name }}</h5>
 
                         </div>
                         <!-- End sidebar header -->
@@ -42,6 +43,10 @@
                         <div class="chat_header p-2">
 
                             <img :src="contacts[0].avatar" alt="Avatar">
+                            <div class="avatar_text">
+                                <h5>{{ contacts[0].name }}</h5>
+                                <span>Ultimo accesso oggi alle 12:00</span>
+                            </div>
 
                         </div>
                         <!-- End chat header -->

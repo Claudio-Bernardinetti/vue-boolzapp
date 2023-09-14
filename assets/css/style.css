@@ -19,9 +19,31 @@ body {
     --bz-app-focus: #8EDAFC;
 }
 
+img {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    margin-right: 1rem;
+}
+
 .sidebar_row {
     margin-top: -6rem;
 }
+
+.header_icons {
+    display: flex;
+    justify-content: space-around;
+}
+
+i {
+    margin: 0.5rem;
+}
+
+.avatar_img_text {
+    display: flex;
+    align-items: center;
+}
+
 
 /* End utilitis */
 
@@ -37,25 +59,22 @@ header > div {
 .sidebar_header {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 75px;
     background-color: var(--bz-app-light);
 }
-
+/* End sidebar header */
 .sidebar_body {
     background-color: var(--bz-app-white);
     height: 575px;
 }
 
-/* End sidebar */
-.chat_body {  
-    background-image: url(../img/mine.jpg);
-    background-repeat: repeat;
-    height: 500px;
-}
+/* End sidebar body */
 
 .chat_header{
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .avatar_header {
@@ -66,11 +85,13 @@ header > div {
     height: 75px;
     background-color: var(--bz-app-light);
 }
-/* End chat */
 
-img {
-    border-radius: 50%;
-    width: 55px;
-    height: 55px;
-    margin-right: 1rem;
+/* End chat header */
+
+.chat_body {  
+    background-image: url(../img/mine.jpg);
+    background-repeat: repeat;
+    height: 500px;
 }
+/* End chat body */
+

@@ -7,6 +7,7 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--bz-app-principal);
+    height: 100vh;
     
 }
 
@@ -67,12 +68,17 @@ header > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 75px;
     background-color: var(--bz-app-light);
 }
 /* End sidebar header */
+
 .sidebar_body {
     background-color: var(--bz-app-white);
+}
+
+.sidebar_body_contacts {
+    overflow: auto;
+    height: calc(100vh - 270px);
 }
 
 .notifiche {
@@ -104,7 +110,6 @@ header > div {
 .user_time {
     position: relative;
     right: 0;
-
 }
 
 .sidebar_body_interlocutor {
@@ -134,13 +139,12 @@ header > div {
 }
 
 .chat_header, .chat_text_area {
-    height: 75px;
     background-color: var(--bz-app-light);
 }
 
 /* End chat header */
 /*  */
-/*  User Chat */
+/*  User Chat send */
 
 .user_text_1, .user_text_2 {
     display: flex;
@@ -148,32 +152,31 @@ header > div {
     align-items: center;
     background-color: var(--bz-app-success);
     border-radius: 5px;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
 }
 
-.user_right  p {
+.user_right_send  p {
      color: lightslategray;
      margin-bottom: -0.5rem;
      font-size: 12px;
 } 
 
-.user_right {
-    margin-top: 2rem;
-}
-
 /* User Chat */
-/* Interlocutor Chat */
+/* Interlocutor Chat recive */
 
 .interlocutor_text {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--bz-app-white);
-    margin-top: 10rem;
     border-radius: 5px;
-    padding-left: 1rem;
+    margin-top: 0.5rem;
+    padding: 0.2rem;
+    
 }
 
-.interlocutor_left  p {
+.interlocutor_left_recive  p {
     color: lightslategray;
     margin-bottom: -0.5rem;
     font-size: 12px;
@@ -183,8 +186,9 @@ header > div {
 .chat_body {  
     background-image: url(../img/mine.jpg);
     background-repeat: repeat;
-    height: 590px;
+    height: calc(100vh - 223px);
 }
+
 
 /* End chat body */
 

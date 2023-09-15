@@ -150,6 +150,16 @@ header > div {
     border-radius: 5px;
 }
 
+.user_right  p {
+     color: lightslategray;
+     margin-bottom: -0.5rem;
+     font-size: 12px;
+} 
+
+.user_right {
+    margin-top: 2rem;
+}
+
 /* User Chat */
 /* Interlocutor Chat */
 
@@ -162,6 +172,12 @@ header > div {
     border-radius: 5px;
     padding-left: 1rem;
 }
+
+.interlocutor_left  p {
+    color: lightslategray;
+    margin-bottom: -0.5rem;
+    font-size: 12px;
+} 
 
 /* Interlocutor Chat */
 .chat_body {  

@@ -70,7 +70,8 @@
                                 <div
                                     class="sidebar_body_interlocutor border-bottom p-1"
                                     v-for="(contact, index) in contacts"
-                                    :key="index">
+                                    :key="index"
+                                    @click="changeActiveContact(index)">
 
                                     <div class="sidebar_body_img_text">
                                         <img :src="contact.avatar" alt="Avatar">
@@ -94,10 +95,10 @@
                     <div class="col-8 p-0 chat">
                         <div class="chat_header p-2">
 
-                            <div class="avatar_img_text">
-                                <img :src="contacts[0].avatar" alt="Avatar">
+                            <div class="avatar_img_text" v-if="activeContact">
+                                <img :src="activeContact.avatar" alt="Avatar">
                                 <div class="avatar_text">
-                                    <h5>{{ contacts[0].name }}</h5>
+                                    <h5>{{ activeContact.name }}</h5>
                                     <h6>Ultimo accesso oggi alle 12:00</h6>
                                 </div>
                             </div>
@@ -110,11 +111,13 @@
 
                         </div>
                         <!-- End chat header -->
+
                         <div class="chat_body m-0">
 
                             <div class="user_right_send row">
                                 <div class="user_text_1 col-4 offset-7">
-                                    <h6>Hai portato a spasso il cane?</h6>
+                                    <h6>Hai portato a spasso il cane?: {{
+                                        user_text }} </h6>
                                     <p>15:30</p>
                                 </div>
                                 <div class="user_text_2 col-4 offset-7">
@@ -126,7 +129,7 @@
                             <div class="interlocutor_left_recive row">
                                 <div
                                     class="interlocutor_text col-4 offset-1">
-                                    <h6>Tutto fatto!</h6>
+                                    <h6>Ciao {{ interlocutor_text }}</h6>
                                     <p>16:15</p>
                                 </div>
                             </div>
@@ -135,8 +138,9 @@
                         <!-- End chat body -->
                         <div class="chat_text_area p-3">
                             <div><i class="fa-regular fa-face-smile"></i></div>
-                            <input class="form-control" type="text"
-                                value="Scrivi un messagio">
+                            <input type="text"
+                                @keyup.enter="sendText"
+                                placeholder="Scrivi un messagio">
                             <div><i class="fa-solid fa-paper-plane"></i></div>
                             <div><i class="fa-solid fa-microphone"></i></div>
                         </div>

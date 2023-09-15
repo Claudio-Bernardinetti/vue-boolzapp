@@ -18,6 +18,11 @@ createApp({
 
         return {
 
+            activeContact: null,
+            // messages: [],
+            // user_text: '',
+            // interlocutor_text: '',
+
             me : [
                 {
                 name : 'Sofia',
@@ -187,10 +192,39 @@ createApp({
                             status: 'received'
                         }
                     ],
-                },
-            ]
+                }
+            ],
+        }
+    },
+    methods: {
+        changeActiveContact(index) {
+            this.activeContact = this.contacts[index];
+        }
+    },
+    created() {
+        if (this.contacts.length > 0) {
+            this.activeContact = this.contacts[0];
         }
     }
+    
 }).mount('#app');
 
 console.log('ciao');
+
+
+
+
+    /* methods: {
+        sendText(event) {
+            this.user_text = event.target.value;
+            console.log('Messaggio inviato:', this.user_text);
+    
+            // Simulate a response from the interlocutor after 1 second
+            setTimeout(() => {
+                this.interlocutor_text = 'Ok';
+                console.log('Risposta interlocutore:', this.interlocutor_text);
+            }, 1000);
+    
+            this.user_text_1 = '';
+        }
+    } */

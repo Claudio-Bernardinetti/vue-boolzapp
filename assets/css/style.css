@@ -191,6 +191,10 @@ header > div {
     overflow: auto; 
 }
 
+.selected {
+    background-color: var(--bz-app-light);
+}
+
 /* End chat body */
 
 .chat_text_area {

@@ -18,12 +18,9 @@ createApp({
 
         return {
 
+            searchQuery: '',
             activeContact: null,
-                
-             
-            // messages: [],
-            // user_text: '',
-            // interlocutor_text: '',
+        
 
             me : [
                 {
@@ -235,13 +232,25 @@ createApp({
             }
         }
     },
+    computed: {
+        filteredContacts() {
+            // Filtra i contatti in base alla query di ricerca
+            if (this.searchQuery) {
+                return this.contacts.filter(contact =>
+                    contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+                );
+            } else {
+                return this.contacts;
+            }
+        }
+    },
     created() {
         // Imposta il primo contatto come contatto attivo quando l'istanza Vue viene creata
         if (this.contacts.length > 0) {
             this.activeContact = this.contacts[0];
         }
     }
-}).mount('#app');
+    }).mount('#app');
 
 
 

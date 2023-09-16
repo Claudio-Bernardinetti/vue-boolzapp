@@ -57,21 +57,26 @@
                             </div>
                             <!-- End notifiche -->
                             <div class="input-group  p-1">
+
                                 <button class="btn btn-outline-secondary"
                                     type="button" id="button-addon1"><i
                                         class="fa-solid fa-magnifying-glass"></i></button>
+
                                 <input type="text" class="form-control"
+                                    v-model="searchQuery"
                                     placeholder="Cerca o inizia una nuova chat"
                                     aria-label="Example text with button addon"
                                     aria-describedby="button-addon1">
+
                             </div>
                             <!-- End Cerca o inizia una nuova chat -->
                             <div class="sidebar_body_contacts">
                                 <div
                                     class="sidebar_body_interlocutor border-bottom p-1"
-                                    v-for="(contact, index) in contacts"
+                                    v-for="(contact, index) in filteredContacts"
                                     :key="index"
-                                    @click="changeActiveContact(index)">
+                                    @click="changeActiveContact(index)"
+                                    :class="{ selected: activeContact === contact }">
 
                                     <div class="sidebar_body_img_text">
                                         <img :src="contact.avatar" alt="Avatar">

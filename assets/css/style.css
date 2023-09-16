@@ -132,6 +132,7 @@ header > div {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    height: 71px;
 }
 
 .avatar_header {
@@ -186,9 +187,9 @@ header > div {
 .chat_body {  
     background-image: url(../img/mine.jpg);
     background-repeat: repeat;
-    height: calc(100vh - 223px);
+    height: 487px;
+    overflow: auto; 
 }
-
 
 /* End chat body */
 

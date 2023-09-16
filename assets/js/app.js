@@ -19,6 +19,8 @@ createApp({
         return {
 
             activeContact: null,
+                
+             
             // messages: [],
             // user_text: '',
             // interlocutor_text: '',
@@ -41,16 +43,42 @@ createApp({
                             date: '10/01/2020 15:30:55',
                             message: 'Hai portato a spasso il cane?',
                             status: 'sent'
+                            
                         },
                         {
                             date: '10/01/2020 15:50:00',
                             message: 'Ricordati di stendere i panni',
                             status: 'sent'
+                            
                         },
                         {
                             date: '10/01/2020 16:15:22',
                             message: 'Tutto fatto!',
                             status: 'received'
+                        }
+                    ],
+                },
+                {
+                    name: 'Fabio',
+                    avatar: './assets/img/avatar_2.jpg',
+                    visible: true,
+                    messages: [
+                        {
+                            date: '20/03/2020 16:30:00',
+                            message: 'Ciao come stai?',
+                            status: 'sent'
+                            
+                        },
+                        {
+                            date: '20/03/2020 16:30:55',
+                            message: 'Bene grazie! Stasera ci vediamo?',
+                            status: 'received'
+                        },
+                        {
+                            date: '20/03/2020 16:35:00',
+                            message: 'Mi piacerebbe ma devo andare a fare la spesa.',
+                            status: 'sent'
+                            
                         }
                     ],
                 },
@@ -192,39 +220,54 @@ createApp({
                             status: 'received'
                         }
                     ],
-                }
+                } 
+                
             ],
         }
     },
     methods: {
+        sendText(event) {
+            // Ottieni il testo inserito dall'utente
+            const userText = event.target.value;
+    
+            // Aggiungi il messaggio dell'utente all'array dei messaggi del contatto attivo
+            this.addMessage({ date: new Date().toISOString(), message: userText, status: 'sent' });
+    
+            // Pulisci il campo di input
+            event.target.value = '';
+    
+            // Simula una risposta dall'interlocutore dopo 1 secondo
+            setTimeout(() => {
+                this.addMessage({ date: new Date().toISOString(), message: 'Ok', status: 'received' });
+            }, 1000);
+        },
         changeActiveContact(index) {
+            // Cambia il contatto attivo
             this.activeContact = this.contacts[index];
+        },
+        addMessage(newMessage) {
+            // Controlla se il nuovo messaggio esiste già nell'array dei messaggi
+            const isDuplicate = this.activeContact.messages.some(
+                message => message.message === newMessage.message && message.status === newMessage.status
+            );
+    
+            // Se il nuovo messaggio non è un duplicato, aggiungilo all'array dei messaggi
+            if (!isDuplicate) {
+                this.activeContact.messages.push(newMessage);
+            }
         }
     },
     created() {
+        // Imposta il primo contatto come contatto attivo quando l'istanza Vue viene creata
         if (this.contacts.length > 0) {
             this.activeContact = this.contacts[0];
         }
     }
-    
 }).mount('#app');
 
-console.log('ciao');
 
 
 
-
-    /* methods: {
-        sendText(event) {
-            this.user_text = event.target.value;
-            console.log('Messaggio inviato:', this.user_text);
     
-            // Simulate a response from the interlocutor after 1 second
-            setTimeout(() => {
-                this.interlocutor_text = 'Ok';
-                console.log('Risposta interlocutore:', this.interlocutor_text);
-            }, 1000);
+
     
-            this.user_text_1 = '';
-        }
-    } */

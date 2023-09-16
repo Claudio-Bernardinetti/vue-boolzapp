@@ -83,28 +83,6 @@ createApp({
                     ],
                 },
                 {
-                    name: 'Fabio',
-                    avatar: './assets/img/avatar_2.jpg',
-                    visible: true,
-                    messages: [
-                        {
-                            date: '20/03/2020 16:30:00',
-                            message: 'Ciao come stai?',
-                            status: 'sent'
-                        },
-                        {
-                            date: '20/03/2020 16:30:55',
-                            message: 'Bene grazie! Stasera ci vediamo?',
-                            status: 'received'
-                        },
-                        {
-                            date: '20/03/2020 16:35:00',
-                            message: 'Mi piacerebbe ma devo andare a fare la spesa.',
-                            status: 'sent'
-                        }
-                    ],
-                },
-                {
                     name: 'Samuele',
                     avatar: './assets/img/avatar_3.jpg',
                     visible: true,
@@ -162,7 +140,7 @@ createApp({
                 },
                 {
                     name: 'Claudia',
-                    avatar: './assets/img/avatar_5.jpg',
+                    avatar: './assets/img/avatar_6.jpg',
                     visible: true,
                     messages: [
                         {

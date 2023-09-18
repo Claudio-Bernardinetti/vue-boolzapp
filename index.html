@@ -133,7 +133,7 @@
                                     <div v-if="message.status === 'sent'"
                                         class="user_text_1 col-4 offset-7">
                                         <h6>{{ message.message }}</h6>
-                                        <p>15:30</p>
+                                        <p>{{ formatTime(message.date) }}</p>
                                     </div>
                                     <!-- <div
                                         v-if="message.status === 'sent' && message.type === '2'"
@@ -149,7 +149,7 @@
                                         v-if="message.status === 'received'"
                                         class="interlocutor_text col-4 offset-1">
                                         <h6>{{ message.message }}</h6>
-                                        <p>16:15</p>
+                                        <p>{{ formatTime(message.date) }}</p>
                                     </div>
                                 </div>
                                 <!-- End interlocutor left -->

@@ -223,6 +223,10 @@ createApp({
         addMessage(newMessage) {
             // Aggiungi il nuovo messaggio all'array dei messaggi
             this.activeContact.messages.push(newMessage);
+        },
+        formatTime(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         }
     },
     computed: {

@@ -255,6 +255,14 @@ createApp({
                 } else {
                     return this.contacts;
                 }
+            
+        },
+        lastReceivedMessage() {
+                if (this.activeContact) {
+                    const receivedMessages = this.activeContact.messages.filter(message => message.status === 'received');
+                    return receivedMessages[receivedMessages.length - 1];
+                }
+                return null;
             }
         },
         created() {

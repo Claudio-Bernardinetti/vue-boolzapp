@@ -109,10 +109,9 @@
                                     alt="Avatar">
                                 <div class="avatar_text">
                                     <h5>{{ activeContact.name }}</h5>
-                                    <h6 v-if="activeContact.messages.length > 0">Ultimo
-                                        accesso oggi alle {{
-                                        formatTime(activeContact.messages[activeContact.messages.length
-                                        - 1].date) }}
+                                    <h6 v-if="lastReceivedMessage">
+                                        Ultimo accesso oggi alle {{
+                                        formatTime(lastReceivedMessage.date) }}
                                     </h6>
                                 </div>
                             </div>

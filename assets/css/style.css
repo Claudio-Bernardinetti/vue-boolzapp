@@ -7,7 +7,9 @@
 body {
     font-family: 'Roboto', sans-serif;
     background-color: var(--bz-app-principal);
-    height: 100vh;
+    height: calc(100vh - 150px);
+    overflow: hidden;
+    
     
 }
 
@@ -25,10 +27,6 @@ img {
     width: 55px;
     height: 55px;
     margin-right: 1rem;
-}
-
-.sidebar_row {
-    margin-top: -6rem;
 }
 
 .header_icons {
@@ -53,6 +51,11 @@ i {
     color: lightslategray;
 }
 
+.sidebar_chat_row {
+    height: auto;
+    margin-top: -6rem;
+}
+
 /* End utilitis */
 
 header > div {
@@ -63,6 +66,7 @@ header > div {
 
 .sidebar {
     border-right: 1px solid rgb(178, 175, 175);
+    height: 100%;
 }
 .sidebar_header {
     display: flex;
@@ -78,7 +82,6 @@ header > div {
 
 .sidebar_body_contacts {
     overflow: auto;
-    height: calc(100vh - 270px);
 }
 
 .notifiche {
@@ -141,6 +144,7 @@ header > div {
 
 .chat_header, .chat_text_area {
     background-color: var(--bz-app-light);
+    
 }
 
 /* End chat header */
@@ -187,8 +191,7 @@ header > div {
 .chat_body {  
     background-image: url(../img/mine.jpg);
     background-repeat: repeat;
-    height: 487px;
-    overflow: auto; 
+    height: 100%;
 }
 
 .selected {

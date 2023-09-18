@@ -26,7 +26,7 @@
             </header>
             <!-- Header body -->
             <div class="container container_main">
-                <div class="row sidebar_row">
+                <div class="row sidebar_chat_row">
                     <div class="col-4 p-0 sidebar">
                         <div class="sidebar_header p-2">
 
@@ -96,12 +96,15 @@
                         </div>
                         <!-- End sidebar body -->
                     </div>
+
                     <!-- End Sidebar -->
-                    <div class="col-8 p-0 chat overflow-y-auto">
+                    <div class="col-8 p-0 overflow-y-auto chat">
                         <div class="chat_header p-2">
 
-                            <div class="avatar_img_text" v-if="activeContact">
-                                <img :src="activeContact.avatar" alt="Avatar">
+                            <div class="avatar_img_text"
+                                v-if="activeContact">
+                                <img :src="activeContact.avatar"
+                                    alt="Avatar">
                                 <div class="avatar_text">
                                     <h5>{{ activeContact.name }}</h5>
                                     <h6>Ultimo accesso oggi alle 12:00</h6>
@@ -111,19 +114,23 @@
                             <div class="header_icons">
                                 <div><i class="fa-solid fa-magnifying-glass"></i></div>
                                 <div><i class="fa-solid fa-paperclip"></i></div>
-                                <div><i class="fa-solid fa-ellipsis-vertical"></i></div>
+                                <div><i
+                                        class="fa-solid fa-ellipsis-vertical"></i></div>
                             </div>
 
                         </div>
+
                         <!-- End chat header -->
-                        <div class="chat_body m-0 overflow-hidden">
+
+                        <div class="chat_body m-0 overflow-auto"
+                            style="overflow-x: hidden;">
                             <div
                                 v-if="activeContact"
                                 v-for="(message, index) in activeContact.messages"
                                 :key="index">
 
                                 <div
-                                    class="user_right_send row">
+                                    class="user_right_send m-0 row">
                                     <div v-if="message.status === 'sent'"
                                         class="user_text_1 col-4 offset-7">
                                         <h6>{{ message.message }}</h6>
@@ -138,8 +145,9 @@
                                 </div>
                                 <!-- End user right -->
                                 <div
-                                    class="interlocutor_left_recive row">
-                                    <div v-if="message.status === 'received'"
+                                    class="interlocutor_left_recive m-0 row">
+                                    <div
+                                        v-if="message.status === 'received'"
                                         class="interlocutor_text col-4 offset-1">
                                         <h6>{{ message.message }}</h6>
                                         <p>16:15</p>
@@ -158,16 +166,16 @@
                             <div><i class="fa-solid fa-microphone"></i></div>
                         </div>
                         <!-- End chat text area -->
-                    </div>
-                </div>
-                <!-- End Chat -->
-            </div>
-            <!-- End main -->
 
-        </div>
-        <!-- Vue.js link -->
-        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
-        <!-- JS link -->
-        <script src="./assets/js/app.js"></script>
-    </body>
-</html>
+                    </div>
+                    <!-- End Chat -->
+                </div>
+                <!-- End main -->
+
+            </div>
+            <!-- Vue.js link -->
+            <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+            <!-- JS link -->
+            <script src="./assets/js/app.js"></script>
+        </body>
+    </html>

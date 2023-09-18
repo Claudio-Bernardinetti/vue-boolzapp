@@ -87,7 +87,9 @@
                                     </div>
 
                                     <div class="sidebar_body_time">
-                                        <p>12:00</p>
+                                        <p v-if="contact.messages.length > 0">{{
+                                            formatTime(contact.messages[contact.messages.length
+                                            - 1].date) }}</p>
                                     </div>
 
                                 </div>
@@ -107,7 +109,10 @@
                                     alt="Avatar">
                                 <div class="avatar_text">
                                     <h5>{{ activeContact.name }}</h5>
-                                    <h6>Ultimo accesso oggi alle 12:00
+                                    <h6 v-if="activeContact.messages.length > 0">Ultimo
+                                        accesso oggi alle {{
+                                        formatTime(activeContact.messages[activeContact.messages.length
+                                        - 1].date) }}
                                     </h6>
                                 </div>
                             </div>

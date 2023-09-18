@@ -107,7 +107,8 @@
                                     alt="Avatar">
                                 <div class="avatar_text">
                                     <h5>{{ activeContact.name }}</h5>
-                                    <h6>Ultimo accesso oggi alle 12:00</h6>
+                                    <h6>Ultimo accesso oggi alle 12:00
+                                    </h6>
                                 </div>
                             </div>
 
@@ -123,37 +124,48 @@
                         <!-- End chat header -->
 
                         <div class="chat_body m-0">
-                            <div
-                                v-if="activeContact"
+                            <div v-if="activeContact"
                                 v-for="(message, index) in activeContact.messages"
                                 :key="index">
-
-                                <div
-                                    class="user_right_send m-0 row">
+                                <div class="user_right_send m-0 row">
                                     <div v-if="message.status === 'sent'"
-                                        class="user_text_1 col-4 offset-7">
+                                        class="user_text col-4 offset-7">
                                         <h6>{{ message.message }}</h6>
                                         <p>{{ formatTime(message.date) }}</p>
+                                        <div class="arrow_dropdown">
+                                            <span @click="toggle(message)"><i
+                                                    class="fa-solid fa-square-caret-down"></i></span>
+                                            <ul class="right_dropdown"
+                                                v-if="message.isActive">
+                                                <li>Message info</li>
+                                                <li
+                                                    @click="deleteMessage(index)">Delete
+                                                    message</li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <!-- <div
-                                        v-if="message.status === 'sent' && message.type === '2'"
-                                        class="user_text_2 col-4 offset-7">
-                                        <h6>{{ message.message }}</h6>
-                                        <p>15:50</p>
-                                    </div> -->
                                 </div>
                                 <!-- End user right -->
-                                <div
-                                    class="interlocutor_left_recive m-0 row">
-                                    <div
-                                        v-if="message.status === 'received'"
+                                <div class="interlocutor_left_recive m-0 row">
+                                    <div v-if="message.status === 'received'"
                                         class="interlocutor_text col-4 offset-1">
                                         <h6>{{ message.message }}</h6>
                                         <p>{{ formatTime(message.date) }}</p>
+                                        <div class="arrow_dropdown">
+                                            <span @click="toggle(message)"><i
+                                                    class="fa-solid fa-square-caret-down"></i></span>
+                                            <ul class="left_dropdown"
+                                                v-if="message.isActive">
+                                                <li>Message info</li>
+                                                <li
+                                                    @click="deleteMessage(index)">Delete
+                                                    message</li>
+                                            </ul>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- End interlocutor left -->
                             </div>
+                            <!-- End interlocutor left -->
                         </div>
                         <!-- End chat body -->
                         <div class="chat_text_area p-3">
@@ -165,16 +177,17 @@
                             <div><i class="fa-solid fa-microphone"></i></div>
                         </div>
                         <!-- End chat text area -->
-
                     </div>
-                    <!-- End Chat -->
-                </div>
-                <!-- End main -->
 
+                </div>
+                <!-- End Chat -->
             </div>
-            <!-- Vue.js link -->
-            <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
-            <!-- JS link -->
-            <script src="./assets/js/app.js"></script>
-        </body>
-    </html>
+            <!-- End main -->
+
+        </div>
+        <!-- Vue.js link -->
+        <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
+        <!-- JS link -->
+        <script src="./assets/js/app.js"></script>
+    </body>
+</html>

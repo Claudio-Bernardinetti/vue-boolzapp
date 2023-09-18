@@ -20,6 +20,8 @@ createApp({
 
             searchQuery: '',
             activeContact: null,
+            isActive: false,
+            
         
 
             me : [
@@ -60,11 +62,11 @@ createApp({
                     avatar: './assets/img/avatar_2.jpg',
                     visible: true,
                     messages: [
-                        {
+                         {
                             date: '03/20/2020 16:30:00',
                             message: 'Ciao come stai?',
                             status: 'sent'
-                            
+                                        
                         },
                         {
                             date: '03/20/2020 16:30:55',
@@ -75,7 +77,7 @@ createApp({
                             date: '03/20/2020 16:35:00',
                             message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                             status: 'sent'
-                            
+                                        
                         }
                     ],
                 },
@@ -173,7 +175,7 @@ createApp({
                             status: 'received'
                         }
                     ],
-                },
+                }, 
                 {
                     name: 'Davide',
                     avatar: './assets/img/avatar_8.jpg',
@@ -198,60 +200,74 @@ createApp({
                 } 
                 
             ],
+
+            
+
+            
         }
     },
     methods: {
-        sendText(event) {
-            // Ottieni il testo inserito dall'utente
-            const userText = event.target.value;
-    
-            // Aggiungi il messaggio dell'utente all'array dei messaggi del contatto attivo
-            this.addMessage({ date: new Date().toISOString(), message: userText, status: 'sent' });
-    
-            // Pulisci il campo di input
-            event.target.value = '';
-    
-            // Simula una risposta dall'interlocutore dopo 1 secondo
-            setTimeout(() => {
-                this.addMessage({ date: new Date().toISOString(), message: 'Ok', status: 'received' });
-            }, 1000);
+        
+
+            toggle(message) {
+                message.isActive = !message.isActive;
+            },
+            deleteMessage(index) {
+                this.activeContact.messages.splice(index, 1);
+            },
+            
+
+            sendText(event) {
+                // Ottieni il testo inserito dall'utente
+                const userText = event.target.value;
+        
+                // Aggiungi il messaggio dell'utente all'array dei messaggi del contatto attivo
+                this.addMessage({ date: new Date().toISOString(), message: userText, status: 'sent' });
+        
+                // Pulisci il campo di input
+                event.target.value = '';
+        
+                // Simula una risposta dall'interlocutore dopo 1 secondo
+                setTimeout(() => {
+                    this.addMessage({ date: new Date().toISOString(), message: 'Ok', status: 'received' });
+                }, 1000);
+            },
+            changeActiveContact(index) {
+                // Cambia il contatto attivo
+                this.activeContact = this.contacts[index];
+            },
+            addMessage(newMessage) {
+                // Aggiungi il nuovo messaggio all'array dei messaggi
+                this.activeContact.messages.push(newMessage);
+            },
+            formatTime(dateString) {
+                const date = new Date(dateString);
+                return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            }
         },
-        changeActiveContact(index) {
-            // Cambia il contatto attivo
-            this.activeContact = this.contacts[index];
+        computed: {
+            filteredContacts() {
+                // Filtra i contatti in base alla query di ricerca
+                if (this.searchQuery) {
+                    return this.contacts.filter(contact =>
+                        contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())
+                    );
+                } else {
+                    return this.contacts;
+                }
+            }
         },
-        addMessage(newMessage) {
-            // Aggiungi il nuovo messaggio all'array dei messaggi
-            this.activeContact.messages.push(newMessage);
-        },
-        formatTime(dateString) {
-            const date = new Date(dateString);
-            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-        }
-    },
-    computed: {
-        filteredContacts() {
-            // Filtra i contatti in base alla query di ricerca
-            if (this.searchQuery) {
-                return this.contacts.filter(contact =>
-                    contact.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-                );
-            } else {
-                return this.contacts;
+        created() {
+            // Imposta il primo contatto come contatto attivo quando l'istanza Vue viene creata
+            if (this.contacts.length > 0) {
+                this.activeContact = this.contacts[0];
             }
         }
-    },
-    created() {
-        // Imposta il primo contatto come contatto attivo quando l'istanza Vue viene creata
-        if (this.contacts.length > 0) {
-            this.activeContact = this.contacts[0];
-        }
-    }
-    }).mount('#app');
+
+}).mount('#app');
 
 
 
 
     
 
-    

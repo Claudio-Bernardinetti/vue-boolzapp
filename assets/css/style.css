@@ -151,10 +151,10 @@ header > div {
 /*  */
 /*  User Chat send */
 
-.user_text_1, .user_text_2 {
+.user_text {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background-color: var(--bz-app-success);
     border-radius: 5px;
     margin-top: 0.5rem;
@@ -167,13 +167,37 @@ header > div {
      font-size: 12px;
 } 
 
+.right_dropdown > li:hover {
+    color: red;
+    width: 100%;
+    cursor: pointer;
+}
+
+.right_dropdown > li {
+    list-style: none;
+}
+
+.right_dropdown {
+    background-color: var(--bz-app-principal);
+    border-radius: 5px;
+    margin-left: -11rem;
+    
+}
+
+.arrow_dropdown {
+    display: none;
+}
+
+.user_text:hover  .arrow_dropdown {
+    display: block;
+}
 /* User Chat */
 /* Interlocutor Chat recive */
 
 .interlocutor_text {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background-color: var(--bz-app-white);
     border-radius: 5px;
     margin-top: 0.5rem;
@@ -187,6 +211,31 @@ header > div {
     font-size: 12px;
 } 
 
+.left_dropdown > li:hover {
+    color: red;
+    width: 100%;
+    cursor: pointer;
+}
+
+.left_dropdown > li {
+    list-style: none;
+}
+
+.left_dropdown {
+    background-color: var(--bz-app-light);
+    border-radius: 5px;
+    margin-left: -11rem;
+    
+}
+
+.arrow_dropdown {
+    display: none;
+}
+
+.interlocutor_text:hover  .arrow_dropdown {
+    display: block;
+}
+
 /* Interlocutor Chat */
 .chat_body {  
     background-image: url(../img/mine.jpg);
@@ -198,6 +247,8 @@ header > div {
 .selected {
     background-color: var(--bz-app-light);
 }
+
+
 
 /* End chat body */
 

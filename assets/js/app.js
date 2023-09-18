@@ -221,15 +221,8 @@ createApp({
             this.activeContact = this.contacts[index];
         },
         addMessage(newMessage) {
-            // Controlla se il nuovo messaggio esiste già nell'array dei messaggi
-            const isDuplicate = this.activeContact.messages.some(
-                message => message.message === newMessage.message && message.status === newMessage.status
-            );
-    
-            // Se il nuovo messaggio non è un duplicato, aggiungilo all'array dei messaggi
-            if (!isDuplicate) {
-                this.activeContact.messages.push(newMessage);
-            }
+            // Aggiungi il nuovo messaggio all'array dei messaggi
+            this.activeContact.messages.push(newMessage);
         }
     },
     computed: {

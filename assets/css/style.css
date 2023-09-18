@@ -191,7 +191,7 @@ header > div {
 .chat_body {  
     background-image: url(../img/mine.jpg);
     background-repeat: repeat;
-    height: 100%;
+    height: 450px;
     overflow-y: scroll;
 }
 

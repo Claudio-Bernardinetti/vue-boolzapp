@@ -272,8 +272,11 @@ createApp({
             // Imposta il primo contatto come contatto attivo quando l'istanza Vue viene creata
             if (this.contacts.length > 0) {
                 this.activeContact = this.contacts[0];
-                this.updateLastReceivedMessage(this.activeContact);
             }
+            // Trova l'ultimo messaggio ricevuto e fai vedere l'orario
+            this.contacts.forEach(contact => {
+                this.updateLastReceivedMessage(contact);
+              });
         }
 
 }).mount('#app');

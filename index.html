@@ -87,9 +87,9 @@
                                     </div>
 
                                     <div class="sidebar_body_time">
-                                        <p v-if="contact.messages.length > 0">{{
-                                            formatTime(contact.messages[contact.messages.length
-                                            - 1].date) }}</p>
+                                        <p v-if="contact.lastReceivedMessage && contact.lastReceivedMessage.date">
+                                            {{ formatTime(contact.lastReceivedMessage.date) }}
+                                        </p>
                                     </div>
 
                                 </div>

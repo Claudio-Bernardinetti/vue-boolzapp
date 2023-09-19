@@ -6,7 +6,8 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: var(--bz-app-principal);
+    background-image: linear-gradient(to bottom, var(--bz-app-header) 0, var(--bz-app-header) 150px, var(--bz-app-principal) 150px, var(--bz-app-principal) 100%);
+    overflow: hidden;
 }
 
 :root {
@@ -49,13 +50,13 @@ i {
 
 .sidebar_chat_row {
     height: auto;
-    margin-top: -6rem;  
+    margin-top: -6rem;
+    margin-bottom: 4rem; 
 }
 
 /* End utilitis */
 
-header > div {
-    background-color: var(--bz-app-header);
+header > div { 
     height: 150px;
 }
 /* End header */
@@ -149,14 +150,16 @@ header > div {
 
 .user_text {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     background-color: var(--bz-app-success);
     border-radius: 5px;
     margin-top: 0.5rem;
-    padding: 0.2rem;
+    padding: 0.5rem;
     overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .user_right_send  p {
@@ -178,7 +181,7 @@ header > div {
 .right_dropdown {
     background-color: var(--bz-app-principal);
     border-radius: 5px;
-    margin-left: -11rem;
+    margin-right: -11rem;
 }
 
 .arrow_dropdown {
@@ -193,14 +196,16 @@ header > div {
 
 .interlocutor_text {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-content: flex-start;
     align-items: flex-start;
     flex-wrap: wrap;
     background-color: var(--bz-app-white);
     border-radius: 5px;
     margin-top: 0.5rem;
-    padding: 0.2rem;
+    padding: 0.5rem;
     overflow-wrap: break-word;
+    white-space: normal;
 }
 
 .interlocutor_left_recive  p {
@@ -222,7 +227,7 @@ header > div {
 .left_dropdown {
     background-color: var(--bz-app-light);
     border-radius: 5px;
-    margin-left: -11rem;
+    margin-right: -11rem;
 }
 
 .arrow_dropdown {

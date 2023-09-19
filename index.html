@@ -103,24 +103,20 @@
                     <div class="col-8 p-0  chat">
                         <div class="chat_header   p-2">
 
-                            <div class="avatar_img_text"
-                                v-if="activeContact">
-                                <img :src="activeContact.avatar"
-                                    alt="Avatar">
+                            <div class="avatar_img_text" v-if="activeContact">
+                                <img :src="activeContact.avatar" alt="Avatar">
                                 <div class="avatar_text">
                                     <h5>{{ activeContact.name }}</h5>
-                                    <h6 v-if="lastReceivedMessage">
-                                        Ultimo accesso oggi alle {{
-                                        formatTime(lastReceivedMessage.date) }}
-                                    </h6>
+                                    <h6 v-if="activeContact.lastReceivedMessage && activeContact.lastReceivedMessage.date">
+                                        Ultimo accesso oggi alle {{ formatTime(activeContact.lastReceivedMessage.date) }}
+                                      </h6>
                                 </div>
                             </div>
 
                             <div class="header_icons">
                                 <div><i class="fa-solid fa-magnifying-glass"></i></div>
                                 <div><i class="fa-solid fa-paperclip"></i></div>
-                                <div><i
-                                        class="fa-solid fa-ellipsis-vertical"></i></div>
+                                <div class="fa-solid fa-ellipsis-vertical"></i></div>
                             </div>
 
                         </div>
@@ -182,9 +178,9 @@
                         </div>
                         <!-- End chat text area -->
                     </div>
-
+                    <!-- End Chat -->
                 </div>
-                <!-- End Chat -->
+                <!-- End Sidebar Chat -->
             </div>
             <!-- End main -->
 

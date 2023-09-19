@@ -21,22 +21,21 @@ createApp({
             searchQuery: '',
             activeContact: null,
             isActive: false,
-            
-        
-
-            me : [
-                {
-                name : 'Sofia',
-                avatar: './assets/img/avatar_io.jpg',
-                visible: true,
-                }
-            ],
+            lastReceivedMessage: null,
+           
+                me : [
+                    {
+                    name : 'Sofia',
+                    avatar: './assets/img/avatar_io.jpg',
+                    visible: true,
+                    }
+                ],
 
             contacts: [
                 {
                     name: 'Michele',
                     avatar: './assets/img/avatar_1.jpg',
-                    visible: true,
+                    visible: false,
                     messages: [
                         {
                             date: '01/10/2020 15:30:55',
@@ -176,6 +175,7 @@ createApp({
                         }
                     ],
                 }, 
+                
                 {
                     name: 'Davide',
                     avatar: './assets/img/avatar_8.jpg',
@@ -198,15 +198,20 @@ createApp({
                         }
                     ],
                 } 
-                
-            ],
-
-            
-
-            
+            ], 
         }
     },
     methods: {
+
+            updateLastReceivedMessage(contact) {
+            // Find the last received message
+            for (let i = contact.messages.length - 1; i >= 0; i--) {
+              if (contact.messages[i].status === 'received') {
+                contact.lastReceivedMessage = contact.messages[i];
+                break;
+              }
+            }
+            },
         
 
             toggle(message) {
@@ -216,7 +221,6 @@ createApp({
                 this.activeContact.messages.splice(index, 1);
             },
             
-
             sendText(event) {
                 // Ottieni il testo inserito dall'utente
                 const userText = event.target.value;
@@ -235,10 +239,17 @@ createApp({
             changeActiveContact(index) {
                 // Cambia il contatto attivo
                 this.activeContact = this.contacts[index];
+                this.updateLastReceivedMessage(this.activeContact);
             },
             addMessage(newMessage) {
                 // Aggiungi il nuovo messaggio all'array dei messaggi
                 this.activeContact.messages.push(newMessage);
+
+                // Update lastReceivedMessage if the new message is a received message
+                if (newMessage.status === 'received') {
+                this.activeContact.lastReceivedMessage = newMessage;
+                
+                }
             },
             formatTime(dateString) {
                 const date = new Date(dateString);
@@ -255,20 +266,13 @@ createApp({
                 } else {
                     return this.contacts;
                 }
-            
-        },
-        lastReceivedMessage() {
-                if (this.activeContact) {
-                    const receivedMessages = this.activeContact.messages.filter(message => message.status === 'received');
-                    return receivedMessages[receivedMessages.length - 1];
-                }
-                return null;
             }
         },
         created() {
             // Imposta il primo contatto come contatto attivo quando l'istanza Vue viene creata
             if (this.contacts.length > 0) {
                 this.activeContact = this.contacts[0];
+                this.updateLastReceivedMessage(this.activeContact);
             }
         }
 
@@ -278,4 +282,3 @@ createApp({
 
 
     
-

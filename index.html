@@ -130,7 +130,8 @@
                                 <div class="user_right_send m-0 row">
                                     <div v-if="message.status === 'sent'"
                                         class="user_text col-4 offset-7">
-                                        <h6>{{ message.message }}</h6>
+                                        
+                                        <h6 class="text-wrap text-break">{{ message.message }}</h6>
                                         <p>{{ formatTime(message.date) }}</p>
                                         <div class="arrow_dropdown">
                                             <span @click="toggle(message)"><i
@@ -149,7 +150,7 @@
                                 <div class="interlocutor_left_recive m-0 row">
                                     <div v-if="message.status === 'received'"
                                         class="interlocutor_text col-4 offset-1">
-                                        <h6>{{ message.message }}</h6>
+                                        <h6 class="text-wrap">{{ message.message }}</h6>
                                         <p>{{ formatTime(message.date) }}</p>
                                         <div class="arrow_dropdown">
                                             <span @click="toggle(message)"><i
